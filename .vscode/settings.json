@@ -1,0 +1,10 @@
+{
+   "workbench.tree.renderIndentGuides": "none",
+   "editor.autoIndent": "full",
+   "editor.wrappingIndent": "none",
+   "editor.selectionHighlight": false,
+   "editor.rulers": [120],
+   "editor.suggest.snippetsPreventQuickSuggestions": false,
+   "editor.suggestSelection": "first",
+   "prettier.tabWidth": 3
+}
