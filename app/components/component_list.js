@@ -36,9 +36,7 @@ export default (props) => {
                         <Ionicons
                            name={props.icon.name}
                            size={props.icon.size !== undefined ? props.icon.size : 17}
-                           color={
-                              props.icon.color !== undefined ? props.icon.color : theme().font.color
-                           }
+                           color={props.icon.color !== undefined ? props.icon.color : theme().font.color}
                         />
                      ) : (
                         false
@@ -54,9 +52,7 @@ export default (props) => {
             false
          )}
 
-         {props.icon !== undefined &&
-         props.icon.border !== undefined &&
-         props.icon.border == true ? (
+         {props.icon !== undefined && props.icon.border !== undefined && props.icon.border == true ? (
             <View
                style={{
                   height: "50%",
@@ -71,7 +67,7 @@ export default (props) => {
 
          {props.renderIcon !== undefined ? <View>{props.renderIcon}</View> : false}
 
-         {props.rendeLeft !== undefined ? props.renderLeft : false}
+         {props.renderLeft !== undefined ? props.renderLeft : false}
 
          <View style={style.list_content}>
             {props.text !== undefined ? (
@@ -82,10 +78,7 @@ export default (props) => {
                false
             )}
             {props.description !== undefined ? (
-               <Text
-                  {...props.descriptionProps}
-                  style={[style.list_description, props.descriptionStyle]}
-               >
+               <Text {...props.descriptionProps} style={[style.list_description, props.descriptionStyle]}>
                   {props.description}
                </Text>
             ) : (
@@ -100,23 +93,14 @@ export default (props) => {
 
          {props.loading !== undefined && props.loading == true ? (
             <Animatable.View animation="fadeInUp" duration={100}>
-               <ActivityIndicator
-                  style={{ marginLeft: 10, opacity: 0.5 }}
-                  size={"small"}
-                  color={theme().font.color}
-               />
+               <ActivityIndicator style={{ marginLeft: 10, opacity: 0.5 }} size={"small"} color={theme().font.color} />
             </Animatable.View>
          ) : (
             false
          )}
 
          {props.chevron ? (
-            <Ionicons
-               style={{ marginLeft: 5 }}
-               name={"chevron-forward"}
-               size={20}
-               color={theme().color.font}
-            />
+            <Ionicons style={{ marginLeft: 5 }} name={"chevron-forward"} size={20} color={theme().color.font} />
          ) : (
             false
          )}

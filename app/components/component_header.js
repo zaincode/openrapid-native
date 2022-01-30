@@ -21,20 +21,14 @@ export default (props) => {
                : false,
          ]}
       >
-         <StatusBar
-            style={
-               props.statusBarStyle !== undefined ? props.statusBarStyle : theme().color.statusBar
-            }
-         />
+         <StatusBar style={props.statusBarStyle !== undefined ? props.statusBarStyle : theme().color.statusBar} />
          {props.rendeLeft !== undefined ? props.renderLeft : false}
          {props.onGoBack !== undefined ? (
             <TouchableOpacity style={{ marginRight: 10 }} onPress={props.onGoBack}>
                <Ionicons
                   name={"arrow-back"}
                   size={20}
-                  color={
-                     props.backArrowColor !== undefined ? props.backArrowColor : theme().font.color
-                  }
+                  color={props.backArrowColor !== undefined ? props.backArrowColor : theme().font.color}
                />
             </TouchableOpacity>
          ) : (
@@ -48,9 +42,7 @@ export default (props) => {
                         <Ionicons
                            name={props.icon.name}
                            size={props.icon.size !== undefined ? props.icon.size : 17}
-                           color={
-                              props.icon.color !== undefined ? props.icon.color : theme().font.color
-                           }
+                           color={props.icon.color !== undefined ? props.icon.color : theme().font.color}
                         />
                      ) : (
                         false
@@ -71,10 +63,7 @@ export default (props) => {
                {props.text}
             </Text>
             {props.description !== undefined ? (
-               <Text
-                  {...props.descriptionProps}
-                  style={[style.header_descrption, props.descrptionStyle]}
-               >
+               <Text {...props.descriptionProps} style={[style.header_descrption, props.descriptionStyle]}>
                   {props.description}
                </Text>
             ) : (

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-nati
 import { observer, inject } from "mobx-react";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
-import { theme } from "../configs/config_global";
+import { theme } from "/configs/config_global";
 
 // Router Class
 @inject("stores")
@@ -25,11 +25,7 @@ export default class LocalNotificationAdapter extends React.PureComponent {
          this.props.stores.global.localNotification !== null
       ) {
          return (
-            <Animatable.View
-               style={style.style_notification_badge_container}
-               animation="slideInUp"
-               duration={300}
-            >
+            <Animatable.View style={style.style_notification_badge_container} animation="slideInUp" duration={300}>
                <TouchableOpacity
                   activeOpacity={0.8}
                   style={[
@@ -119,14 +115,13 @@ export default class LocalNotificationAdapter extends React.PureComponent {
                      <View style={style.style_notification_badge_footer}>
                         {this.props.stores.global.localNotification.button.yes !== undefined ? (
                            <TouchableOpacity
-                              onPress={this.props.stores.global.localNotification.button.yes}
+                              onPress={this.props.stores.global.localNotification.button.yes.onPress}
                               style={style.style_notification_badge_footer_item}
                            >
-                              <Text
-                                 numberOfLines={1}
-                                 style={style.style_notification_badge_footer_item_text}
-                              >
-                                 Yes, Please
+                              <Text numberOfLines={1} style={style.style_notification_badge_footer_item_text}>
+                                 {this.props.stores.global.localNotification.button.yes.caption !== undefined
+                                    ? this.props.stores.global.localNotification.button.yes.caption
+                                    : "Yes"}
                               </Text>
                            </TouchableOpacity>
                         ) : (
@@ -140,14 +135,13 @@ export default class LocalNotificationAdapter extends React.PureComponent {
                         )}
                         {this.props.stores.global.localNotification.button.cancel !== undefined ? (
                            <TouchableOpacity
-                              onPress={this.props.stores.global.localNotification.button.cancel}
+                              onPress={this.props.stores.global.localNotification.button.cancel.onPress}
                               style={style.style_notification_badge_footer_item_cancel}
                            >
-                              <Text
-                                 numberOfLines={1}
-                                 style={style.style_notification_badge_footer_item_text_cancel}
-                              >
-                                 Cancel
+                              <Text numberOfLines={1} style={style.style_notification_badge_footer_item_text_cancel}>
+                                 {this.props.stores.global.localNotification.button.cancel.caption !== undefined
+                                    ? this.props.stores.global.localNotification.button.cancel.caption
+                                    : "Cancel"}
                               </Text>
                            </TouchableOpacity>
                         ) : (
